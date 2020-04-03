@@ -1,0 +1,13 @@
+.posts {
+  grid-column: col-start 1 / col-end 5;
+
+  &__title {
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+
+    & > h1 {
+      margin-right: auto;
+    }
+  }
+}

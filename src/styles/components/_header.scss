@@ -1,0 +1,29 @@
+.header {
+  grid-row: header;
+
+  display: flex;
+  padding: 0 2rem;
+
+  &__left,
+  &__right {
+    display: flex;
+    height: 100%;
+  }
+
+  &__left {
+    margin-right: auto;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    padding-right: 4rem;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: currentColor;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+}

@@ -1,0 +1,23 @@
+.article {
+  padding: 0 2rem;
+
+  &__img {
+    width: var(--page-width);
+    height: 40rem;
+    object-fit: cover;
+  }
+
+  &__details {
+    font-weight: 700;
+    margin-bottom: 4rem;
+  }
+
+  &__text {
+    font-size: 2rem;
+    width: 120rem;
+
+    & > span > p {
+      margin-bottom: 2rem;
+    }
+  }
+}

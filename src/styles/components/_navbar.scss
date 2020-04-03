@@ -1,0 +1,9 @@
+.navbar {
+  display: flex;
+  align-items: center;
+
+  & > a {
+    margin-right: 2rem;
+    line-height: 1;
+  }
+}

@@ -1,0 +1,63 @@
+.manage {
+  padding: 0 2rem;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    max-width: 60rem;
+    background-color: var(--color-gray);
+    box-shadow: var(--inner-shadow);
+    padding: 4rem 2.5rem;
+    border-radius: 0.6rem;
+  }
+
+  &__label {
+    font-size: 1.4rem;
+  }
+
+  &__input {
+    border-radius: 0.6rem;
+    border: 0.1rem solid var(--color-gray-dark);
+    background-color: var(--color-white);
+    padding: 0.8rem 1.5rem;
+    margin-bottom: 2rem;
+
+    &:focus {
+      border: 0.1rem solid var(--color-primary);
+    }
+  }
+
+  &__select {
+    border-radius: 0.6rem;
+    border: 0.1rem solid var(--color-gray-dark);
+    padding: 0.8rem 2.5rem 0.8rem 1.5rem;
+    margin-bottom: 2rem;
+    background-color: var(--color-white);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position-x: 99%;
+    background-position-y: 0.6rem;
+    font-size: 1.6rem;
+
+    &:focus {
+      border: 0.1rem solid var(--color-primary);
+    }
+  }
+
+  &__submit {
+    background-color: var(--color-primary);
+    padding: 1rem 6rem;
+    color: var(--color-white);
+    font-weight: 700;
+    border: none;
+    border-radius: 0.6rem;
+    align-self: flex-start;
+    transition: opacity 0.2s cubic-bezier(0.65, 0, 0.35, 1);
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,900;1,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: var(--font-family-primary);
+  color: var(--color-black);
+  font-size: var(--font-base);
+  line-height: 1.58;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+input,
+textarea {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-base);
+  resize: vertical;
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+h1 {
+  font-size: 6rem;
+  font-weight: 900;
+}
+
+h2 {
+  font-size: 3.2rem;
+  font-weight: 900;
+}
+
+h3 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+// REUSABLE
+
+.hidden {
+  display: none;
+}
+
+.is-active {
+  font-weight: bold;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.btn-primary {
+  border: none;
+  padding: 0.5rem 3rem;
+  border-radius: 0.6rem;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  transition: opacity 0.2s cubic-bezier(0.65, 0, 0.35, 1);
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.btn-secondary {
+  border: 0.2rem solid var(--color-primary);
+  padding: 0.2rem 1.5rem;
+  border-radius: 0.6rem;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  background-color: transparent;
+  transition: opacity 0.2s cubic-bezier(0.65, 0, 0.35, 1);
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.link {
+  text-decoration: underline;
+  transition: color 0.2s cubic-bezier(0.65, 0, 0.35, 1);
+
+  &:hover {
+    color: var(--color-primary);
+  }
+}
+
+// GRID
+
+#app {
+  display: grid;
+  grid-template-rows: [header] 8rem [main] 1fr [footer] min-content;
+  gap: 6rem 0;
+  min-height: 100vh;
+  max-width: var(--page-width);
+  margin: 0 auto;
+}
+
+.container {
+  display: grid;
+  padding: 0 2rem;
+}
+
+.home {
+  grid-row: main;
+  grid-template-columns: repeat(
+    8,
+    [col-start] minmax(min-content, 1fr) [col-end]
+  );
+}
+
+.not-found {
+  padding: 0 2rem;
+}
+
+// ICONS
+
+.gg-chevron-down {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  width: 22px;
+  height: 22px;
+  border: 2px solid transparent;
+  border-radius: 100px;
+}
+.gg-chevron-down::after {
+  content: '';
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+  transform: rotate(45deg);
+  left: 4px;
+  top: 2px;
+}
+
+.gg-chevron-up {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  width: 22px;
+  height: 22px;
+  border: 2px solid transparent;
+  border-radius: 100px;
+}
+.gg-chevron-up::after {
+  content: '';
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid;
+  border-right: 2px solid;
+  transform: rotate(-45deg);
+  left: 4px;
+  bottom: 2px;
+}
