@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-const NotFoundPage = ({ history }) => {
-  setTimeout(() => history.push('/'), 5000)
+const NotFoundPage = ({ history, delay = 5000 }) => {
+  useEffect(() => {
+    const timeout = setTimeout(() => history.push('/'), delay)
+
+    return () => clearTimeout(timeout)
+  }, [delay, history])
 
   return (
     <main className="not-found">
