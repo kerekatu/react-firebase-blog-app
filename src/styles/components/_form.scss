@@ -1,14 +1,19 @@
-.manage {
-  padding: 0 2rem;
+.form {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-gray);
+  box-shadow: var(--inner-shadow);
+  padding: 4rem 2.5rem;
+  border-radius: 0.6rem;
+  width: 100%;
 
-  &__form {
+  &__title {
+    margin-bottom: 2rem;
+  }
+
+  &__field {
     display: flex;
     flex-direction: column;
-    max-width: 60rem;
-    background-color: var(--color-gray);
-    box-shadow: var(--inner-shadow);
-    padding: 4rem 2.5rem;
-    border-radius: 0.6rem;
   }
 
   &__label {
@@ -20,6 +25,7 @@
     border: 0.1rem solid var(--color-gray-dark);
     background-color: var(--color-white);
     padding: 0.8rem 1.5rem;
+    color: currentColor;
     margin-bottom: 2rem;
 
     &:focus {
@@ -40,6 +46,7 @@
     background-position-x: 99%;
     background-position-y: 0.6rem;
     font-size: 1.6rem;
+    color: var(--color-black);
 
     &:focus {
       border: 0.1rem solid var(--color-primary);
@@ -59,5 +66,13 @@
     &:hover {
       opacity: 0.8;
     }
+  }
+}
+
+.form-container {
+  width: 40%;
+
+  @include respond(tab-port) {
+    width: 80%;
   }
 }

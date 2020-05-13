@@ -1,0 +1,41 @@
+.btn-primary,
+.btn-secondary {
+  display: block;
+  border-radius: var(--border-radius-max);
+  padding: 0.5rem 3rem;
+  text-transform: uppercase;
+  line-height: 1;
+  transition: opacity 0.2s cubic-bezier(0.65, 0, 0.35, 1);
+
+  &--circle {
+    padding: 0.5rem 0.5rem !important;
+  }
+
+  &--small {
+    padding: 0.5rem 1.5rem !important;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.btn-primary {
+  border: none;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+}
+
+.btn-secondary {
+  border: 0.2rem solid var(--color-primary);
+  color: var(--color-primary);
+  background-color: transparent;
+}
+
+.btn-tertiary {
+  display: block;
+  border: none;
+  background-color: transparent;
+  color: var(--color-primary);
+  transform: scale(1.5);
+}

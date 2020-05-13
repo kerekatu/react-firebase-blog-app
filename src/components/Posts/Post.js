@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import useFetchMatch from '../../../hooks/useFetchMatch'
+import useFetchMatch from '../../hooks/useFetchMatch'
 import Skeleton from 'react-loading-skeleton'
 import ReactMarkdown from 'react-markdown'
 
-const PostItem = props => {
-  const response = useFetchMatch('posts', props.match.params.slug)
+const Post = (props) => {
+  const response = useFetchMatch('posts', 'slug', props.match.params.slug)
   const [loading, setLoading] = useState(true)
 
   if (!response.result) {
@@ -36,4 +36,4 @@ const PostItem = props => {
   )
 }
 
-export default PostItem
+export default Post

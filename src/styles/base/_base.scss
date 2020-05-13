@@ -9,11 +9,16 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%;
+
+  @include respond(tab-port) {
+    font-size: 50%;
+  }
 }
 
 body {
   font-family: var(--font-family-primary);
   color: var(--color-black);
+  background-color: var(--color-white);
   font-size: var(--font-base);
   line-height: 1.58;
 }
@@ -27,9 +32,13 @@ button:disabled {
 }
 
 input,
-textarea {
+textarea,
+button {
   font-family: var(--font-family-primary);
   font-size: var(--font-base);
+}
+
+textarea {
   resize: vertical;
 }
 
@@ -39,19 +48,26 @@ a {
 }
 
 h1 {
-  font-size: 6rem;
+  font-size: var(--heading-one);
   font-weight: 900;
 }
 
 h2 {
-  font-size: 3.2rem;
+  font-size: var(--heading-two);
   font-weight: 900;
 }
 
 h3 {
-  font-size: 2.4rem;
+  font-size: var(--heading-three);
   font-weight: 700;
-  text-transform: capitalize;
+}
+
+p + p {
+  margin-top: 2rem;
+}
+
+img {
+  display: block;
 }
 
 // REUSABLE
@@ -68,34 +84,8 @@ h3 {
   font-weight: 700;
 }
 
-.btn-primary {
-  border: none;
-  padding: 0.5rem 3rem;
-  border-radius: 0.6rem;
-  font-size: 1.6rem;
-  text-transform: uppercase;
-  color: var(--color-white);
-  background-color: var(--color-primary);
-  transition: opacity 0.2s cubic-bezier(0.65, 0, 0.35, 1);
-
-  &:hover {
-    opacity: 0.8;
-  }
-}
-
-.btn-secondary {
-  border: 0.2rem solid var(--color-primary);
-  padding: 0.2rem 1.5rem;
-  border-radius: 0.6rem;
-  font-size: 1.6rem;
-  text-transform: uppercase;
-  color: var(--color-primary);
-  background-color: transparent;
-  transition: opacity 0.2s cubic-bezier(0.65, 0, 0.35, 1);
-
-  &:hover {
-    opacity: 0.8;
-  }
+.bolder {
+  font-weight: 900;
 }
 
 .link {
@@ -107,6 +97,14 @@ h3 {
   }
 }
 
+.bg-error {
+  background-color: var(--color-error) !important;
+}
+
+.bg-success {
+  background-color: var(--color-success) !important;
+}
+
 // GRID
 
 #app {
@@ -116,69 +114,28 @@ h3 {
   min-height: 100vh;
   max-width: var(--page-width);
   margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .container {
   display: grid;
-  padding: 0 2rem;
 }
 
 .home {
   grid-row: main;
+  gap: 0 6rem;
   grid-template-columns: repeat(
     8,
     [col-start] minmax(min-content, 1fr) [col-end]
   );
 }
 
-.not-found {
-  padding: 0 2rem;
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-// ICONS
-
-.gg-chevron-down {
-  box-sizing: border-box;
-  position: relative;
-  display: block;
-  width: 22px;
-  height: 22px;
-  border: 2px solid transparent;
-  border-radius: 100px;
-}
-.gg-chevron-down::after {
-  content: '';
-  display: block;
-  box-sizing: border-box;
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  border-bottom: 2px solid;
-  border-right: 2px solid;
-  transform: rotate(45deg);
-  left: 4px;
-  top: 2px;
-}
-
-.gg-chevron-up {
-  box-sizing: border-box;
-  position: relative;
-  display: block;
-  width: 22px;
-  height: 22px;
-  border: 2px solid transparent;
-  border-radius: 100px;
-}
-.gg-chevron-up::after {
-  content: '';
-  display: block;
-  box-sizing: border-box;
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  border-top: 2px solid;
-  border-right: 2px solid;
-  transform: rotate(-45deg);
-  left: 4px;
-  bottom: 2px;
+.manage > .form:not(:first-child) {
+  margin-top: 2rem;
 }

@@ -1,32 +1,34 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { AuthProvider } from '../context/auth-context'
 import PrivateRoute from './PrivateRoute'
 import PublicRoute from './PublicRoute'
-import Home from '../views/Home'
-import NotFound from '../views/NotFound'
-import Manage from '../views/Manage'
-import Login from '../views/Login'
-import Post from '../views/Post'
+import Header from '../components/Header/Header'
+import Footer from '../components/Footer/Footer'
+import HomeView from '../views/HomeView'
+import LoginView from '../views/LoginView'
+import ArticleView from '../views/ArticleView'
+import ManageView from '../views/ManageView'
+import NotFoundView from '../views/NotFoundView'
 
-import Header from '../views/Header'
-import Footer from '../views/Footer'
-import { AuthProvider } from '../context/auth-context'
-
-const AppRouter = () => (
-  <AuthProvider>
-    <Router>
-      <Header />
-      <Switch>
-        <PublicRoute path="/" component={Home} exact />
-        <PublicRoute path="/login" component={Login} />
-        <PublicRoute path="/posts/:slug" component={Post} exact />
-        <PrivateRoute path="/edit" component={Manage} />
-        <PrivateRoute path="/add" component={Manage} />
-        <Route component={NotFound} />
-      </Switch>
-      <Footer />
-    </Router>
-  </AuthProvider>
-)
+const AppRouter = () => {
+  return (
+    <AuthProvider>
+      <Router>
+        <Header />
+        <Switch>
+          <PublicRoute path="/" component={HomeView} exact />
+          <PublicRoute path="/login" component={LoginView} />
+          <PublicRoute path="/posts/:slug" component={ArticleView} exact />
+          <PublicRoute path="/categories/:slug" component={HomeView} exact />
+          <PrivateRoute path="/edit/:slug" component={ManageView} exact />
+          <PrivateRoute path="/add" component={ManageView} />
+          <Route component={NotFoundView} />
+        </Switch>
+        <Footer />
+      </Router>
+    </AuthProvider>
+  )
+}
 
 export default AppRouter

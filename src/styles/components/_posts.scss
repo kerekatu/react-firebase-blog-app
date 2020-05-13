@@ -1,13 +1,19 @@
 .posts {
   grid-column: col-start 1 / col-end 5;
 
+  @include respond(tab-port) {
+    grid-column: col-start 1 / col-end 8;
+  }
+
   &__title {
-    margin-bottom: 2rem;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    line-height: 1;
 
-    & > h1 {
-      margin-right: auto;
+    & > button {
+      transform: translateY(0.4rem);
     }
   }
 }

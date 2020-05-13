@@ -1,0 +1,31 @@
+.categories {
+  grid-column: col-start 6 / -1;
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+  background-color: var(--color-gray);
+  padding: 2rem 3rem;
+  border-radius: var(--border-radius-min);
+  box-shadow: var(--inner-shadow);
+
+  @include respond(tab-port) {
+    grid-row: 1 / 2;
+    grid-column: col-start 1 / col-end 8;
+    margin-bottom: 4rem;
+    padding: 4rem;
+  }
+
+  &__title {
+    margin-bottom: 2rem;
+    line-height: 1;
+  }
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__container > .btn-primary {
+    margin: 0 1.5rem 1.5rem 0;
+  }
+}

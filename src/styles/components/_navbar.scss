@@ -2,8 +2,13 @@
   display: flex;
   align-items: center;
 
-  & > a {
-    margin-right: 2rem;
-    line-height: 1;
+  & > a,
+  .btn-primary,
+  .btn-tertiary {
+    margin-left: 2rem;
+  }
+
+  & > .btn-tertiary {
+    margin-right: 0.6rem;
   }
 }

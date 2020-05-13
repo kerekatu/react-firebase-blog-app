@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import { AuthContext } from '../context/auth-context'
+import AdminToolbar from '../components/AdminToolbar/AdminToolbar'
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const { currentUser } = useContext(AuthContext)
@@ -8,8 +9,15 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   return (
     <Route
       {...rest}
-      component={props =>
-        !!currentUser ? <Component {...props} /> : <Redirect to="/" />
+      component={(props) =>
+        currentUser ? (
+          <>
+            <Component {...props} />
+            <AdminToolbar />
+          </>
+        ) : (
+          <Redirect to="/" />
+        )
       }
     />
   )

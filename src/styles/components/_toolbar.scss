@@ -1,0 +1,52 @@
+.toolbar {
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 9%;
+
+  & > .emoji {
+    position: absolute;
+    background-color: var(--color-gray);
+    padding: 1rem;
+    border-top-right-radius: var(--border-radius-min);
+    border-bottom-right-radius: var(--border-radius-min);
+    transition: transform 0.2s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    transform: translateX(-15rem);
+    background-color: var(--color-gray);
+    width: 15rem;
+    padding: 1rem;
+    transition: transform 0.2s cubic-bezier(0.65, 0, 0.35, 1);
+    box-shadow: var(--inner-shadow);
+
+    & > *:not(:first-child) {
+      margin: 0.5rem 0;
+
+      &:hover {
+        color: var(--color-primary);
+      }
+    }
+  }
+
+  &:hover .emoji {
+    transform: translateX(15rem);
+  }
+
+  &:hover > .emoji:hover {
+    transform: translateX(15rem);
+  }
+
+  &:hover > &__content {
+    transform: translateX(0);
+  }
+
+  &__title {
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+}

@@ -4,13 +4,17 @@
 
 // BASE
 @import './base/base';
+@import './base/icons';
 
 // COMPONENTS
 @import './components/article';
+@import './components/button';
 @import './components/card';
+@import './components/categories';
 @import './components/footer';
+@import './components/form';
 @import './components/header';
-@import './components/login';
-@import './components/manage';
+@import './components/logo';
 @import './components/navbar';
 @import './components/posts';
+@import './components/toolbar';

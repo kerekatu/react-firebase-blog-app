@@ -2,37 +2,40 @@ import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import firebase from '../firebase/firebase'
 
-const useFetchMatch = (collection, slug) => {
+const useFetchMatch = (collection, prop, slug) => {
   const [result, setResult] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
     const unsubscribe = firebase
       .firestore()
       .collection(collection)
-      .where('slug', '==', slug)
+      .where(prop, '==', slug)
       .get()
-      .then(querySnapshot => {
-        if (querySnapshot.size) {
-          querySnapshot.forEach(doc => {
-            setResult(doc.data())
+      .then((snapshot) => {
+        if (snapshot.size) {
+          const tempDoc = []
+          snapshot.forEach((doc) => {
+            tempDoc.push(doc.data())
             setLoading(false)
           })
+          setResult(tempDoc)
         }
       })
-      .catch(error => {
-        console.log(error)
+      .catch((e) => {
+        setError('Error: ' + e)
       })
 
     return () => unsubscribe
-  }, [firebase, slug])
+  }, [collection, prop, slug])
 
-  return { result }
+  return { result, loading, error }
 }
 
-useFetchMatch.PropTypes = {
-  collection: PropTypes.string,
-  id: PropTypes.string
+useFetchMatch.propTypes = {
+  collection: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
 }
 
 export default useFetchMatch

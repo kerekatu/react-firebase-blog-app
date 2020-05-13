@@ -1,0 +1,17 @@
+.logo {
+  display: block;
+  height: 8rem;
+
+  &--navbar {
+    height: 4rem;
+  }
+
+  &__link {
+    display: block;
+    height: 100%;
+  }
+
+  &__img {
+    height: 100%;
+  }
+}

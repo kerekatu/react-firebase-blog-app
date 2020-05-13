@@ -1,5 +1,8 @@
 .toast {
+  top: 1rem;
+  left: 1rem;
   background-color: var(--color-primary);
   color: var(--color-white);
-  padding: 10rem;
+  padding: 2rem;
+  position: fixed;
 }
