@@ -18,9 +18,9 @@ const useFetchMatch = (collection, prop, slug) => {
           const tempDoc = []
           snapshot.forEach((doc) => {
             tempDoc.push(doc.data())
+            setResult(tempDoc)
             setLoading(false)
           })
-          setResult(tempDoc)
         }
       })
       .catch((e) => {
@@ -35,6 +35,7 @@ const useFetchMatch = (collection, prop, slug) => {
 
 useFetchMatch.propTypes = {
   collection: PropTypes.string.isRequired,
+  prop: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
 }
 

@@ -21,12 +21,12 @@ const EditPost = ({ match }) => {
 
   useEffect(() => {
     if (!responseMatch.loading && !response.loading) {
-      setTitle(responseMatch.result.title)
-      setSlug(responseMatch.result.slug)
-      setCoverImage(responseMatch.result.cover_image)
-      setCoverImageAlt(responseMatch.result.cover_image_alt)
-      setBody(responseMatch.result.body)
-      setCategory(responseMatch.result.category)
+      setTitle(responseMatch.result[0].title)
+      setSlug(responseMatch.result[0].slug)
+      setCoverImage(responseMatch.result[0].cover_image)
+      setCoverImageAlt(responseMatch.result[0].cover_image_alt)
+      setBody(responseMatch.result[0].body)
+      setCategory(responseMatch.result[0].category)
       setCategories(response.result)
     }
   }, [

@@ -5,40 +5,40 @@ const WebpackBar = require('webpackbar')
 process.env.NODE_ENV = process.env.NODE_ENV || 'development'
 require('dotenv').config({ path: '.env' })
 
-module.exports = env => {
+module.exports = (env) => {
   const isProduction = env === 'production'
 
   return {
     entry: ['./src/app.js'],
     output: {
       path: path.join(__dirname, 'public', 'dist'),
-      filename: 'bundle.js'
+      filename: 'bundle.js',
     },
     module: {
       rules: [
         {
           loader: 'babel-loader',
           test: /\.js$/,
-          exclude: /node_modules/
+          exclude: /node_modules/,
         },
         {
           use: [
             'style-loader',
             'css-loader',
             'resolve-url-loader',
-            'sass-loader'
+            'sass-loader',
           ],
-          test: /\.(sa|sc|c)ss$/
+          test: /\.(sa|sc|c)ss$/,
         },
         {
           loader: 'url-loader',
-          test: /\.(gif|png|jpe?g|svg)$/i
+          test: /\.(gif|png|jpe?g|svg)$/i,
         },
         {
           test: /\.(woff|woff2)$/,
-          loader: 'url-loader?limit=100000'
-        }
-      ]
+          loader: 'url-loader?limit=100000',
+        },
+      ],
     },
     plugins: [
       new WebpackBar(),
@@ -60,8 +60,11 @@ module.exports = env => {
         ),
         'process.env.FIREBASE_MESSAGING_SENDER_ID': JSON.stringify(
           process.env.FIREBASE_MESSAGING_SENDER_ID
-        )
-      })
+        ),
+        'process.env.FIREBASE_APP_ID': JSON.stringify(
+          process.env.FIREBASE_APP_ID
+        ),
+      }),
     ],
     devtool: isProduction ? 'source-map' : 'inline-source-map',
     devServer: {
@@ -69,7 +72,7 @@ module.exports = env => {
       historyApiFallback: true,
       publicPath: '/dist/',
       noInfo: true,
-      stats: 'minimal'
-    }
+      stats: 'minimal',
+    },
   }
 }
